@@ -11,7 +11,11 @@ namespace MostriVsEroi.View
     {
         public static void Registrazione()
         {
-          Utente utente= RichiestaDati.InserisciUsernamePassword();
+          Utente utente=RichiestaDati.InserisciUsernamePassword();
+
+
+            
+            Console.WriteLine("Registrazione effettuata con successo!");
  
         }
     }

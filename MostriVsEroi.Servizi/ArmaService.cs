@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MostriVsEroi.Servizi
 {
-   public static class ArmaSercice
+   public static class ArmaService
     {
         static ArmaMockRepository amr = new ArmaMockRepository();
 

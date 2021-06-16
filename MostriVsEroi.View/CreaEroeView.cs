@@ -24,7 +24,7 @@ namespace MostriVsEroi.View
             Console.WriteLine("Scegli l'arma");
             Console.WriteLine("Scegli i punti danno");
             
-           List<Arma> armi= ArmaSercice.GetArmi(utente);
+           List<Arma> armi= ArmaService.GetArmi(utente);
             foreach (Arma arma in armi)
             {
                 Console.WriteLine(arma.Nome);
@@ -35,8 +35,11 @@ namespace MostriVsEroi.View
             Arma arma1 = new Arma(armanome, puntiDanno);
             Eroe eroe1 = new Eroe(nome, arma1, (CategoriaEroe)categoria);
             List<Eroe> eroi = new List<Eroe>();
+            
             eroi.Add(eroe1);
+            Console.WriteLine("Hai aggiunto un nuovo eroe");
             return eroe1;
+            
 
 
 
