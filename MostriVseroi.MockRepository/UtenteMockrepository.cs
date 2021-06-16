@@ -2,7 +2,7 @@
 using MostriVsEroi.Modelli;
 
 
-namespace MostriVsEori.MockRepository
+namespace MostriVsEroi.MockRepository
 {
     public class UtenteMockrepository: IUtenteRepository
     {

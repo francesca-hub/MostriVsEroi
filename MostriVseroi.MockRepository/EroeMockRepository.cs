@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 
 
-namespace MostriVsEori.MockRepository
+namespace MostriVsEroi.MockRepository
 {
   public  class EroeMockRepository
     {
