@@ -19,17 +19,17 @@ namespace MostriVsEroi.Servizi
 
         public static void AttaccoEroe(Giocatore eroe, Mostro mostro)
         {
-            int nuoviPuntiVitaMostro = mostro.PuntiVita - eroe.Arma.PuntiDanno;
-            //return nuoviPuntiVitaMostro;
-            if (mostro.PuntiVita == 0)
-            {
-                Console.WriteLine("Hai vinto");
-            }
-            else
-            {
-                Console.WriteLine("Il turno di attacco passa al mostro");
-                MostroService.AttaccoMostro(eroe, mostro);
-            }
+           
+                int nuoviPuntiVitaMostro = mostro.PuntiVita - eroe.Arma.PuntiDanno;
+                //return nuoviPuntiVitaMostro;
+
+                if (mostro.PuntiVita > 0)
+                {
+                    Console.WriteLine("Il turno di attacco passa al mostro");
+                    MostroService.AttaccoMostro(eroe, mostro);
+                }
+            
+
         }
     }
 }

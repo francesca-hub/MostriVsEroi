@@ -25,7 +25,7 @@ namespace MostriVsEroi.View
         }
 
         private static void Partita(Giocatore eroe, Mostro mostro, Utente utente)
-        {
+        { 
             if (mostro.Livello > eroe.Livello)
             {
                 Console.WriteLine(MostroService.ScegliMostro(utente));
@@ -43,8 +43,20 @@ namespace MostriVsEroi.View
                     switch (scelta)
                     {
                         case "1":
-                            EroeService.AttaccoEroe(eroe, mostro);
-                            MostroService.AttaccoMostro(eroe, mostro);
+                            do
+                            {
+                                EroeService.AttaccoEroe(eroe, mostro);
+                                MostroService.AttaccoMostro(eroe, mostro);
+                            } while (eroe.PuntiVita > 0 && mostro.PuntiVita > 0);
+                            if (eroe.PuntiVita == 0)
+                            {
+                                Console.WriteLine("Hai perso!");
+                               
+                            }
+                            if (mostro.PuntiVita == 0)
+                            {
+                                Console.WriteLine("Hai vinto");
+                            }
                             break;
 
                         case "2":
@@ -69,8 +81,9 @@ namespace MostriVsEroi.View
                 {
                     foreach (Giocatore eroe in eroi)
                     {
-                        Console.WriteLine($"Premi {count} per scegliere l'eroe {eroe.Nome}, di tipo {CategoriaEroe.Guerriero} +" +
+                        Console.WriteLine($"Premi {count} per scegliere l'eroe {eroe.Nome}, di tipo {CategoriaEroe.Guerriero} "+ 
                                 $" con arma {eroe.Arma} che ha {eroe.Arma.PuntiDanno} punti danno, di livello {eroe.Livello} e vita {eroe.PuntiVita}");
+                        count++;
                     }
                     conversioneRiuscita = int.TryParse(Console.ReadLine(), out eroescelto);
 
