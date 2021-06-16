@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MostriVsEroi.Modelli\MostriVsEroi.Modelli.csproj" />
+    <ProjectReference Include="..\MostriVsEroi.SchermataService\MostriVsEroi.SchermataService.csproj" />
+    <ProjectReference Include="..\MostriVsEroi.Servizi\MostriVsEroi.Servizi.csproj" />
+  </ItemGroup>
+
+</Project>

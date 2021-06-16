@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MostriVsEroi.Modelli", "Mos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostriVsEroi.Servizi", "MostriVsEroi.Servizi\MostriVsEroi.Servizi.csproj", "{44A8F89D-B6BE-4C22-8CBE-41E8794212C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostriVsEroi.View", "MostriVsEroi.View\MostriVsEroi.View.csproj", "{6382EEF7-118C-4F32-AEBE-3CFF3811B340}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostriVsEroi.SchermataService", "MostriVsEroi.SchermataService\MostriVsEroi.SchermataService.csproj", "{BF42C82D-2D47-4083-8F34-2B233EA49FA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{44A8F89D-B6BE-4C22-8CBE-41E8794212C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44A8F89D-B6BE-4C22-8CBE-41E8794212C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44A8F89D-B6BE-4C22-8CBE-41E8794212C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6382EEF7-118C-4F32-AEBE-3CFF3811B340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6382EEF7-118C-4F32-AEBE-3CFF3811B340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6382EEF7-118C-4F32-AEBE-3CFF3811B340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6382EEF7-118C-4F32-AEBE-3CFF3811B340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF42C82D-2D47-4083-8F34-2B233EA49FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF42C82D-2D47-4083-8F34-2B233EA49FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF42C82D-2D47-4083-8F34-2B233EA49FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF42C82D-2D47-4083-8F34-2B233EA49FA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
