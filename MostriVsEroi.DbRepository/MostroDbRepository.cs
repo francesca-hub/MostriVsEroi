@@ -14,7 +14,7 @@ namespace MostriVsEroi.DbRepository
         public List<Mostro> FetchMostro(Utente utente) {
             List<Mostro> mostri = new List<Mostro>();
             Connessione(out SqlConnection connection, out SqlCommand cmd);
-           cmd.CommandText = "SELECT * from dbo.ListaMostri;";
+           cmd.CommandText = "SELECT * from dbo.Mostri;";
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {

@@ -31,6 +31,11 @@ namespace MostriVsEroi.Modelli
         {
             Nome = nome;
         }
+
+        public Giocatore()
+        {
+                
+        }
     }
 
     public class Eroe : Giocatore
@@ -60,6 +65,9 @@ namespace MostriVsEroi.Modelli
 
         }
 
+        public Eroe()
+        {
+        }
     }
 
 

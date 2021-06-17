@@ -22,8 +22,8 @@ namespace MostriVsEroi.View
             }
             string nomeEroe = Console.ReadLine();
 
-            Eroe EroeEliminato = new Eroe(nomeEroe);
-            eroi.Remove(EroeEliminato);
+            Eroe eroeEliminato = new Eroe(nomeEroe);
+            eroi.Remove(eroeEliminato);
                 
         }
     }

@@ -17,6 +17,16 @@ namespace MostriVsEroi.Servizi
             return emr.FetchEroi(utente);
         }
 
+        public static void AddEroe(Utente utente, Eroe eroe)
+        {
+            emr.CreaEroe(utente, eroe);
+        }
+
+        public static void DeleteEroe(Utente utente, Eroe eroeEliminato)
+        {
+            emr.EliminaEroe(utente, eroeEliminato);
+        }
+
         public static void AttaccoEroe(Giocatore eroe, Mostro mostro)
         {
            
@@ -28,7 +38,7 @@ namespace MostriVsEroi.Servizi
                     Console.WriteLine("Il turno di attacco passa al mostro");
                     MostroService.AttaccoMostro(eroe, mostro);
                 }
-            
+
 
         }
     }

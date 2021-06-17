@@ -13,12 +13,12 @@ namespace MostriVsEroi.DbRepository
         public List<Eroe> FetchEroi(Utente utente)
         {
             List<Eroe> eroi = new List<Eroe>();
-            //eroi.Add(new Eroe("PrimoEroeDiProva", new Arma("Ascia", 8), 1, CategoriaEroe.Guerriero, 20, 0));
-            //eroi.Add(new Eroe("SecondoEroeDiProva", new Arma("Bastone Magico", 10), 2, CategoriaEroe.Mago, 40, 0));
+            
+            
             Connessione(out SqlConnection connection, out SqlCommand cmd);
             
 
-            cmd.CommandText = "SELECT * FROM dbo.Utenti WHERE Username = @Username;";
+            cmd.CommandText = "SELECT * FROM dbo.Giocatore WHERE Username = @Username;";
 
             cmd.Parameters.AddWithValue("@Username", utente.Username);
             SqlDataReader reader = cmd.ExecuteReader();

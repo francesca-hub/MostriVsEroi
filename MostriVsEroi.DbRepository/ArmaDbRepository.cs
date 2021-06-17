@@ -10,13 +10,13 @@ namespace MostriVsEroi.DbRepository
 {
     class ArmaDbRepository : DbManager
     {
-        public List<Arma> FetchArma(Utente utente)
+        public List<Arma> FetchArma(Eroe eroe)
         {
             List<Arma> armi = new List<Arma>();
             //Console.WriteLine("Inserire il nome dell'arma cercata");
             //string arma = Console.ReadLine();
             Connessione(out SqlConnection connection, out SqlCommand cmd);
-            cmd.CommandText = "SELECT * from dbo.Armi ";
+            cmd.CommandText = "SELECT * from dbo.Arma ";
             
             SqlDataReader reader = cmd.ExecuteReader();
             if (!reader.HasRows)

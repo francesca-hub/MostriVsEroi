@@ -13,5 +13,10 @@ namespace MostriVsEroi.Servizi
         {
             return umr.GetUser(utente);
         }
+
+        public static void AggiungiUtente(Utente utente)
+        {
+            umr.AddUtente(utente);
+        }
     }
 }

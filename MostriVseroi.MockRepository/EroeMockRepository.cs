@@ -17,5 +17,17 @@ namespace MostriVsEroi.MockRepository
 
             return eroi;
         }
+
+        public void CreaEroe(Utente utnte, Eroe eroe)
+        {
+            List<Eroe> eroi = new List<Eroe>();
+            eroi.Add(eroe);
+        }
+
+        public void EliminaEroe(Utente utente, Eroe eroeEliminato)
+        {
+            List<Eroe> eroi = new List<Eroe>();
+            eroi.Remove(eroeEliminato);
+        }
     }
     }

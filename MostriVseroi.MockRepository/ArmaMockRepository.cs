@@ -10,11 +10,11 @@ namespace MostriVsEroi.MockRepository
 {
     public class ArmaMockRepository
     {
-        public  List<Arma> FetchArma(Utente utente)
+        public  List<Arma> FetchArma(Eroe eroe)
         {
             List<Arma> armi = new List<Arma>();
-            
-           
+            armi.Add(new Arma("Bacchetta", 5));
+            armi.Add(new Arma("Mazza", 5));
 
             return armi;
         }

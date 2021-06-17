@@ -7,7 +7,7 @@ namespace MostriVsEroi.MockRepository
 {
     public class UtenteMockrepository : IUtenteRepository
     {
-        static List<Utente> utente = new List<Utente>();
+        List<Utente> utenti = new List<Utente>();
 
         public Utente GetUser(Utente utente)
         {
@@ -15,6 +15,9 @@ namespace MostriVsEroi.MockRepository
             return utente;
         }
 
-
+        public void AddUtente(Utente utente)
+        {
+            utenti.Add(utente);
+        }
     }
 }
