@@ -19,7 +19,7 @@ namespace MostriVsEroi.Modelli
             Nome = nome;
             Arma = arma;
             Livello = livello;
-            PuntiVita = PuntiVita;
+            PuntiVita = puntiVita;
         }
 
         public Giocatore(string nome, Arma arma)

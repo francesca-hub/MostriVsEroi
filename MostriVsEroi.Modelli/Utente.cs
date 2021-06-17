@@ -18,5 +18,7 @@ namespace MostriVsEroi.Modelli
             IsAuthenticated = false;
             IsAdmin = false;
         }
+
+
     }
 }
