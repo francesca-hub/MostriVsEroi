@@ -33,5 +33,15 @@ namespace MostriVsEroi.DbRepository
             connection.Close();
             return utente;
         }
+
+        public void AddUtente(Utente utente)
+        {
+            Connessione(out SqlConnection connessione, out SqlCommand cmd);
+            cmd.CommandText = "insert into dbo.Giocatore values (@Username, @Password)";
+            cmd.Parameters.AddWithValue("@Username", utente.Username);
+            cmd.Parameters.AddWithValue("@Password", utente.Password);
+            cmd.ExecuteNonQuery();
+            connessione.Close();
+        }
     }
 }

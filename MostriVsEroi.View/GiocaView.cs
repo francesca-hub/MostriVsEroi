@@ -18,53 +18,14 @@ namespace MostriVsEroi.View
             //scelta eroe
             Giocatore eroe = ScegliEroe(utente);
             Mostro mostro = MostroService.ScegliMostro(utente);
+            if (mostro.Livello <= eroe.Livello)
+            {
+
+                Console.WriteLine(MostroService.ScegliMostro(utente));
+            }
             Partita(eroe, mostro, utente);
 
             //partita
-
-        }
-
-        private static void Partita(Giocatore eroe, Mostro mostro, Utente utente)
-        { 
-            if (mostro.Livello > eroe.Livello)
-            {
-                Console.WriteLine(MostroService.ScegliMostro(utente));
-            }
-            else
-            {
-                do
-                {
-                    Console.WriteLine("Gioca partita!");
-                    Console.WriteLine("Premi 1 per attaccare");
-                    Console.WriteLine("Premi 2 per la fuga");
-                    Console.WriteLine();
-                    string scelta = Console.ReadLine();
-
-                    switch (scelta)
-                    {
-                        case "1":
-                            do
-                            {
-                                EroeService.AttaccoEroe(eroe, mostro);
-                                MostroService.AttaccoMostro(eroe, mostro);
-                            } while (eroe.PuntiVita > 0 && mostro.PuntiVita > 0);
-                            if (eroe.PuntiVita == 0)
-                            {
-                                Console.WriteLine("Hai perso!");
-                               
-                            }
-                            if (mostro.PuntiVita == 0)
-                            {
-                                Console.WriteLine("Hai vinto");
-                            }
-                            break;
-
-                        case "2":
-                            //fuga();
-                            break;
-                    }
-                } while (true);
-            }
 
         }
 
@@ -81,7 +42,7 @@ namespace MostriVsEroi.View
                 {
                     foreach (Giocatore eroe in eroi)
                     {
-                        Console.WriteLine($"Premi {count} per scegliere l'eroe {eroe.Nome}, di tipo {CategoriaEroe.Guerriero} "+ 
+                        Console.WriteLine($"Premi {count} per scegliere l'eroe {eroe.Nome}, di tipo {CategoriaEroe.Guerriero} " +
                                 $" con arma {eroe.Arma} che ha {eroe.Arma.PuntiDanno} punti danno, di livello {eroe.Livello} e vita {eroe.PuntiVita}");
                         count++;
                     }
@@ -97,5 +58,48 @@ namespace MostriVsEroi.View
                 return null;
             }
         }
+
+
+        private static void Partita(Giocatore eroe, Mostro mostro, Utente utente)
+        {
+         
+            do
+            {
+                Console.WriteLine("Gioca partita!");
+                Console.WriteLine("Premi 1 per attaccare");
+                Console.WriteLine("Premi 2 per la fuga");
+                Console.WriteLine();
+                string scelta = Console.ReadLine();
+
+                switch (scelta)
+                {
+                    case "1":
+                        
+                           
+
+                        do { 
+                            EroeService.AttaccoEroe(eroe, mostro);
+                            MostroService.AttaccoMostro(eroe, mostro);
+                           } while (eroe.PuntiVita > 0 && mostro.PuntiVita > 0);
+                        if (eroe.PuntiVita == 0)
+                        {
+                            Console.WriteLine("Hai perso!");
+
+                        }
+                        if (mostro.PuntiVita == 0)
+                        {
+                            Console.WriteLine("Hai vinto");
+                        }
+                        break;
+
+                    case "2":
+                        //fuga();
+                        break;
+                }
+            } while (true);
+        }
+
     }
 }
+       
+       

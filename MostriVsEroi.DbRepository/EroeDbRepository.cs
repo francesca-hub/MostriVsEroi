@@ -18,26 +18,101 @@ namespace MostriVsEroi.DbRepository
             Connessione(out SqlConnection connection, out SqlCommand cmd);
             
 
-            cmd.CommandText = "SELECT * FROM dbo.Giocatore WHERE Username = @Username;";
-
-            cmd.Parameters.AddWithValue("@Username", utente.Username);
+            cmd.CommandText = "SELECT * FROM dbo.Eroe";
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                var nome = (string)reader[1];
-                var categoriaEroe = (CategoriaEroe)reader[2];
-                var livello = (int)reader[3];
-                var puntiVita = (int)reader[4];
-                var nomeArma = (string)reader[5];
-                var puntiDannoArma = (int)reader[6];
-                var puntiAccumulati = (int)reader[7];
+                var idEroe = (int)reader[0];
+                var nomeEroe = (string)reader[1];
+                var livello = (int)reader[2];
+                var idGiocatore = (int)reader[3];
+                var idCategoria = (int)reader[4];
+                var idArma = (int)reader[5];
 
-                Eroe eroe = new Eroe(nome, new Arma (nomeArma,puntiDannoArma),livello,categoriaEroe, puntiVita,puntiAccumulati);
-                eroi.Add(eroe);
+                Console.WriteLine($"{idEroe} - Nome eroe: {nomeEroe} - Categoria: {idCategoria} - Livello: {livello} - Arma:{idArma}");
             }
             connection.Close();
             
             return eroi;
         }
+        public void CreaEroe(Eroe eroe, Utente utente)
+        {
+          
+            int idGiocatore = FetchIdGiocatore(utente);
+            int idCategoria = FetchIdCategoria(eroe);
+            int idArma = FetchIdArma(eroe);
+
+          
+           Connessione(out SqlConnection connection, out SqlCommand cmd);
+            cmd.CommandText = "insert into dbo.Eroe (NomeEroe,Livello,IdUtente,IDCategoria,IDArma) values (@NomeEroe, @Livello, @IdUtente, @IDCategoriaEroe,@IdArma)";
+            cmd.Parameters.AddWithValue("@NomeEroe", eroe.Nome);
+            cmd.Parameters.AddWithValue("@IDCategoriaEroe", idCategoria);
+            cmd.Parameters.AddWithValue("@IdUtente", idGiocatore);
+            cmd.Parameters.AddWithValue("@IdArma", idArma);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void EliminaEroe(Utente utente, Eroe eroe)
+        {
+            
+            int idUtente = FetchIdGiocatore(utente);
+
+            Connessione(out SqlConnection connection, out SqlCommand cmd);
+            cmd.CommandText = "DELETE FROM dbo.Eroe WHERE NomeEroe = @NomeEroe AND IdUtente = @IdUtente; ";
+            cmd.Parameters.AddWithValue("@NomeEroe", eroe.Nome);
+            cmd.Parameters.AddWithValue("@IdUtente", idUtente);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        private int FetchIdArma(Eroe eroe)
+        {
+            Connessione(out SqlConnection connection, out SqlCommand cmd);
+            cmd.CommandText = "select from dbo.Eroe WHERE IDArma=@IDArma;";
+            cmd.Parameters.AddWithValue("@Nome", eroe.Categoria);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int idArma = 0;
+            while (reader.Read())
+            {
+                var id = (int)reader[5];
+                idArma= id;
+            }
+            connection.Close();
+            return idArma;
+        }
+
+        private int FetchIdCategoria(Eroe eroe)
+        {
+            Connessione(out SqlConnection connection, out SqlCommand cmd);
+            cmd.CommandText = "select from dbo.Eroe WHERE IDCategoria=@IDCategoria;";
+            cmd.Parameters.AddWithValue("@Nome", eroe.Categoria);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int idCategoria = 0;
+            while (reader.Read())
+            {
+                var id = (int)reader[4];
+                idCategoria = id;
+            }
+            connection.Close();
+            return idCategoria;
+        }
+
+        private int FetchIdGiocatore(Utente utente)
+        {
+            Connessione(out SqlConnection connection, out SqlCommand cmd);
+            cmd.CommandText = "select  from dbo.Giocatore WHERE Username = @Username;";
+            cmd.Parameters.AddWithValue("@Username", utente.Username);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int idUtente = 0;
+            while (reader.Read())
+            {
+                var id = (int)reader[3];
+                idUtente = id;
+            }
+            connection.Close();
+            return idUtente;
+        }
+
     }
 }
